@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 
-
+@st.cache(allow_output_mutation=True)
 # Load both the model and CountVectorizer from the pickled file
 with open('model.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
