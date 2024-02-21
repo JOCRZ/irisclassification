@@ -9,7 +9,7 @@ with open('model.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
     
 
-
+data = pd.read_csv('data//depolytest.csv')
 st.image("data//banner.png", width=500)
 
 nav = st.sidebar.radio("Navigation", ["About", "Classify"])
@@ -26,6 +26,9 @@ def classify_review(input_data):
     return prediction[0]
 
 if nav == 'Classify':
+    st.markdown(""" Click Check box to see test data """)
+    if st.checkbox("Show Table"):
+        st.table(data)
     st.header('Find Which Species of Iris Flower')
     sl = st.text_input("Sepal Length")
     sw = st.text_input("Sepal Width")
